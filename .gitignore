@@ -1,0 +1,11 @@
+.gitconfig
+.DS_Store
+Thumbs.db
+*.bak
+*.deb
+*.pyc
+*.rpm
+*~
+data.test.*
+data.live.*
+.vscode

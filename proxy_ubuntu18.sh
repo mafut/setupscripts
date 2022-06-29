@@ -167,7 +167,6 @@ function setup_vpn(){
     ufw allow 443
     ufw allow 1723
     ufw allow 8080
-    ufw allow 8888
     
     CONFIG=/etc/default/ufw
     cp -f ${CONFIG} ${CONFIG}.bak
