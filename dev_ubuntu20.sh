@@ -100,8 +100,8 @@ fi
 
 # [Code-Server] Reset Permission
 mkdir -p /home/${USERNAME}/.local/share/code-server
-chown -R ${USERNAME} /home/${USERNAME}/.local/share/code-server
-chgrp -R ${USERNAME} /home/${USERNAME}/.local/share/code-server
+chown -R ${USERNAME} /home/${USERNAME}/.local/
+chgrp -R ${USERNAME} /home/${USERNAME}/.local/
 find /home/${USERNAME}/.local/share/code-server -type d -exec chmod 755 {} \;
 find /home/${USERNAME}/.local/share/code-server -type f -exec chmod 644 {} \;
 
@@ -162,6 +162,7 @@ collation-server = utf8mb4_general_ci
 default-storage-engine=innodb
 default_password_lifetime = 0
 innodb_file_per_table = 1
+log_bin_trust_function_creators = 1
 
 [mysql]
 auto-rehash
