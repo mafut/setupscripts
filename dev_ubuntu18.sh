@@ -3,11 +3,13 @@
 # Initialize variables
 USERNAME=$SUDO_USER
 APACHE_USER=www-data
+APACHE_GROUP=www-data
 APACHE_LOG=/var/log/apache2
 APACHE_DOCPATH=$1
 APACHE_PORT=$3
 PHP_VER=7.2
 CODESERVER_VER=4.4.0
+CODESERVER_GROUP=
 CODESERVER_PASS=$2
 CODESERVER_PORT=$4
 CERT_PATH=$5
@@ -124,7 +126,7 @@ WorkingDirectory=/var/lib/code-server
 Restart=always
 RestartSec=10
 
-ExecStart=/user/bin/code-server --host 127.0.0.1 --user-data-dir /var/lib/code-server
+ExecStart=/user/bin/code-server --host 127.0.0.1 --user-data-dir /home/${USERNAME}/.local/share/code-server
 ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
@@ -137,7 +139,7 @@ bind-addr: 127.0.0.1:${CODESERVER_PORT}
 auth: password
 password: ${CODESERVER_PASS}
 cert: false
-user-data-dir: /var/lib/code-server
+user-data-dir: /home/${USERNAME}/.local/share/code-server
 log: debug
 EOF
 

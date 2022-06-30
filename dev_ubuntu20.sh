@@ -124,7 +124,7 @@ WorkingDirectory=/var/lib/code-server
 Restart=always
 RestartSec=10
 
-ExecStart=/user/bin/code-server --host 127.0.0.1 --user-data-dir /var/lib/code-server
+ExecStart=/user/bin/code-server --host 127.0.0.1 --user-data-dir /home/${USERNAME}/.local/share/code-server
 ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
@@ -137,7 +137,7 @@ bind-addr: 127.0.0.1:${CODESERVER_PORT}
 auth: password
 password: ${CODESERVER_PASS}
 cert: false
-user-data-dir: /var/lib/code-server
+user-data-dir: /home/${USERNAME}/.local/share/code-server
 log: debug
 EOF
 
