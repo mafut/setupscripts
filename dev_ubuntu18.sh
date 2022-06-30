@@ -60,6 +60,7 @@ apt-get -y --force-yes upgrade
 
 # Install packages
 apt-get -y --force-yes install wget zip unzip
+apt-get -y --force-yes install certbot python3
 apt-get -y --force-yes install apache2 php php-gd php-mbstring php-mysql php-apcu php-soap libapache2-mod-php composer
 apt-get -y --force-yes install ufw nginx
 apt-get -y --force-yes autoremove
