@@ -100,12 +100,6 @@ if [ ! -e ./code-server_${CODESERVER_VER}_amd64.deb ]; then
 fi
 
 # [Code-Server] Reset Permission
-mkdir -p /var/lib/code-server/
-chown -R ${USERNAME} /var/lib/code-server/
-chgrp -R ${USERNAME} /var/lib/code-server/
-find /var/lib/code-server/ -type d -exec chmod 755 {} \;
-find /var/lib/code-server/ -type f -exec chmod 644 {} \;
-
 mkdir -p /home/${USERNAME}/.local/share/code-server
 chown -R ${USERNAME} /home/${USERNAME}/.local/share/code-server
 chgrp -R ${USERNAME} /home/${USERNAME}/.local/share/code-server
@@ -122,7 +116,7 @@ After=apache2.service
 [Service]
 Type=simple
 User=${USERNAME}
-WorkingDirectory=/var/lib/code-server
+WorkingDirectory=/home/${USERNAME}
 Restart=always
 RestartSec=10
 
